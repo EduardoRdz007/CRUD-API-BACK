@@ -5,14 +5,12 @@ const app = express();
 
 const FoodModel = require("./models/Food");
 
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const app = express();
-
-const FoodModel = require("./models/Food");
 app.use(express.json())
 app.use(cors())
+
+mongoose.connect('mongodb+srv://eduardo10:123edu@crud.fxhzz.mongodb.net/?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+});
 
 mongoose.connect('mongodb+srv://eduardo10:123edu@crud.fxhzz.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
