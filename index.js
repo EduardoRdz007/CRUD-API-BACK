@@ -29,20 +29,6 @@ app.post('/insert', async (req, res) => {
 });
 
 
-app.post('/insert', async (req, res) => {
-
-    const foodName = req.body.foodName
-    const days = req.body.days
-
-    const food = new FoodModel({foodName: foodName, daysSinceIAte: days});
-
-    try{
-        await food.save();
-        res.send("inserted data")
-    } catch(err){
-        console.log(err)
-    }
-});
 
 app.get('/read', async (req, res) => {
     FoodModel.find({},(err, result) =>{
@@ -54,6 +40,15 @@ app.get('/read', async (req, res) => {
     })
 });
 
+app.get('/read', async (req, res) => {
+    FoodModel.find({},(err, result) =>{
+        if (err){
+            res.send(err)
+        }
+
+        res.send(result)
+    })
+});
 
 app.put('/update', async (req, res) => {
 
