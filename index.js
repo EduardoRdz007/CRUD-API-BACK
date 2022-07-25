@@ -12,9 +12,22 @@ mongoose.connect('mongodb+srv://eduardo10:123edu@crud.fxhzz.mongodb.net/?retryWr
     useNewUrlParser: true,
 });
 
-mongoose.connect('mongodb+srv://eduardo10:123edu@crud.fxhzz.mongodb.net/?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
+
+app.post('/insert', async (req, res) => {
+
+    const foodName = req.body.foodName
+    const days = req.body.days
+
+    const food = new FoodModel({foodName: foodName, daysSinceIAte: days});
+
+    try{
+        await food.save();
+        res.send("inserted data")
+    } catch(err){
+        console.log(err)
+    }
 });
+
 
 app.post('/insert', async (req, res) => {
 
