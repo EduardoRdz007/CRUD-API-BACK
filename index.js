@@ -5,6 +5,12 @@ const app = express();
 
 const FoodModel = require("./models/Food");
 
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const app = express();
+
+const FoodModel = require("./models/Food");
 app.use(express.json())
 app.use(cors())
 
